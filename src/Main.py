@@ -8,6 +8,8 @@ def backToMenu():
 
 
 # This is a basic command line menu for calculator. Once More is understood this will be on a gui. #
+# Uses a switch like if statement #
+
 
 def menu():
     print("Welcome to the menu")
@@ -15,7 +17,6 @@ def menu():
     print("Please choose from the following")
 
     print("1. Add \n 2. Subtract \n 3. Multiply \n 4. Divide \n 5. Exit")
-
     choice = input("")
     if choice == "1":
         add = input("Enter the first")
