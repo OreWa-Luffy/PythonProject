@@ -1,4 +1,5 @@
-print("Hello World")
+import tkinter as tk
+from tkinter import *
 
 
 def backToMenu():
@@ -55,4 +56,13 @@ def menu():
         print("Goodbye")
 
 
-menu()
+# menu()
+
+
+m = tk.Tk()
+m.title("Calculator")
+label = Label(m, text="Welcome to calculator")
+label.pack()
+button = tk.Button(m, text="ADD", width=25, command=m.destroy)
+button.pack()
+m.mainloop()
