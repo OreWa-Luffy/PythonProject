@@ -61,7 +61,7 @@ def menu():
 
 # menu()
 
-
+# GUI things.
 m = tk.Tk()
 m.title("Calculator")
 label = Label(m, text="Welcome to calculator")
