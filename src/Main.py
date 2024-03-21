@@ -7,6 +7,8 @@ def backToMenu():
     menu()
 
 
+# This is a basic command line menu for calculator. Once More is understood this will be on a gui. #
+
 def menu():
     print("Welcome to the menu")
 
