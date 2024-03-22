@@ -58,12 +58,12 @@ def menu():
     elif choice == 5:
         print("Goodbye")
 
-
 def Add():
     add1 = Submit1.get()
     add2 = Submit2.get()
     total = add1 + add2
-    print(total)
+    label.config(text=total)
+
 
 
 # menu()
@@ -81,3 +81,4 @@ Submit2 = Entry(m, width=25)
 Submit2.pack()
 
 m.mainloop()
+
