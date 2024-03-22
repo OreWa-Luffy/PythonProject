@@ -59,6 +59,13 @@ def menu():
         print("Goodbye")
 
 
+def Add():
+    add1 = Submit1.get()
+    add2 = Submit2.get()
+    total = add1 + add2
+    print(total)
+
+
 # menu()
 
 # GUI things.
@@ -66,13 +73,11 @@ m = tk.Tk()
 m.title("Calculator")
 label = Label(m, text="Welcome to calculator")
 label.pack()
-button = tk.Button(m, text="ADD", width=25, command=m.destroy)
+button = tk.Button(m, text="ADD", width=25, command=Add)
 button.pack()
 Submit1 = Entry(m, width=25)
 Submit1.pack()
 Submit2 = Entry(m, width=25)
 Submit2.pack()
-
-
 
 m.mainloop()
