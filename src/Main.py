@@ -68,5 +68,11 @@ label = Label(m, text="Welcome to calculator")
 label.pack()
 button = tk.Button(m, text="ADD", width=25, command=m.destroy)
 button.pack()
+Submit1 = Entry(m, width=25)
+Submit1.pack()
+Submit2 = Entry(m, width=25)
+Submit2.pack()
+
+
+
 m.mainloop()
-answerSubmit = Entry(m, width=25)
