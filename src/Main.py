@@ -5,8 +5,8 @@ from tkinter import *
 # Now moved to GUI #
 
 def Add():
-    add1 = Submit1.get()
-    add2 = Submit2.get()
+    add1 = int(Submit1.get())
+    add2 = int(Submit2.get())
     total = add1 + add2
     label.config(text=total)
     button.config(state=DISABLED)
