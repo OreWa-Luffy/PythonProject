@@ -22,6 +22,9 @@ def Add():
     label.config(text=total)
 
 
+def
+
+
 def validate_and_enable_button(*args):
     if Submit1.get() and Submit2.get():
         if Submit1.get().isdigit() and Submit2.get().isdigit():
