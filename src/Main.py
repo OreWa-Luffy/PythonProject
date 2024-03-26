@@ -22,7 +22,11 @@ def Add():
     label.config(text=total)
 
 
-def
+def subTract():
+    sub1 = int(Submit1.get())
+    sub2 = int(Submit2.get())
+    subtotal = sub1 - sub2
+    label.config(text=subtotal)
 
 
 def validate_and_enable_button(*args):
