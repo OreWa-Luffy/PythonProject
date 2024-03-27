@@ -62,13 +62,13 @@ label = Label(m, text="Welcome to calculator")
 label.pack()
 
 # AddButton stuff
-addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
+addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
 addButton.pack()
 # SubButton stuff
-subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED)
+subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
 subButton.pack()
 # MultiButton stuff
-multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED)
+multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
 multiButton.pack()
 
 
