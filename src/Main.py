@@ -30,12 +30,12 @@ def subTract():
     subtotal = sub1 - sub2
     label.config(text=subtotal)
 
+# Multiply method.
 def multiply():
     multi1 = int(Submit1.get())
     multi2 = int(Submit2.get())
     multiTotal = multi1 * multi2
     label.config(text=multiTotal)
-
 
 
 # Validates whether the button can be pressed if both numbers are filled.
@@ -44,12 +44,15 @@ def validate_and_enable_button(*args):
         if Submit1.get().isdigit() and Submit2.get().isdigit():
             addButton.config(state=NORMAL)
             subButton.config(state=NORMAL)
+            multiButton.config(state=NORMAL)
         else:
             addButton.config(state=tk.DISABLED)
             subButton.config(state=tk.DISABLED)
+            multiButton.config(state=tk.DISABLED)
     else:
         addButton.config(state=tk.DISABLED)
         subButton.config(state=tk.DISABLED)
+        multiButton.config(state=tk.DISABLED)
 
 
 # GUI things.
@@ -58,11 +61,17 @@ m.title("Calculator")
 label = Label(m, text="Welcome to calculator")
 label.pack()
 
-# Button stuff
+# AddButton stuff
 addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
 addButton.pack()
-subButton = tk.Button(m, text="SUBTRACT", width=25,command=subTract, state=DISABLED)
+# SubButton stuff
+subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED)
 subButton.pack()
+# MultiButton stuff
+multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED)
+multiButton.pack()
+
+
 validate_cmd = m.register(validate_input)
 
 # Label stuff
