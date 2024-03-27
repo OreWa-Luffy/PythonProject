@@ -93,15 +93,15 @@ except Exception as e:
 
 m.start_time = time.time()
 
-m.timer_label = tk.Label(m, text="Timer: 0 seconds", font=14)
-m.timer_label.grid(row=6, column=0, columnspan=2)
+timerLabel = tk.Label(m, text="Timer: 0 seconds", font=14)
+timerLabel.grid(row=6, column=0, columnspan=2)
 
 
 def clock():
     hour = time.strftime("%H", time.localtime())
     minute = time.strftime("%M", time.localtime())
     second = time.strftime("%S", time.localtime())
-
+    timerLabel.config(text=hour + ":" + minute + ":" + second)
 
 # Label stuff
 label = Label(m, text="Welcome to calculator")
@@ -137,4 +137,5 @@ clearButton.grid(row=5, column=0, columnspan=2)
 Submit1.bind("<KeyRelease>", validate_and_enable_button)
 Submit2.bind("<KeyRelease>", validate_and_enable_button)
 
+clock()
 m.mainloop()
