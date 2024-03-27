@@ -76,7 +76,7 @@ def validate_and_enable_button(*args):
 # GUI things.
 m = tk.Tk()
 m.title("Calculator")
-m.geometry("200x300")
+m.geometry("360x150")
 icon_path = "C:/Users/baydr/Pictures/Uni/redstone.png"
 
 # Attempts to apply image to icon photo.
@@ -90,33 +90,33 @@ except Exception as e:
 
 # Label stuff
 label = Label(m, text="Welcome to calculator")
-label.pack()
+label.grid(row=0, column=0, columnspan=2)
 
 # AddButton stuff
 addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
-addButton.pack(side=tk.LEFT)
+addButton.grid(row=1, column=0)
 # SubButton stuff
 subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
-subButton.pack(tk.LEFT)
+subButton.grid(row=1, column=1)
 # MultiButton stuff
 multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
-multiButton.pack()
+multiButton.grid(row=2, column=0)
 # DivideButton stuff
-divideButton = tk.Button(m, text="DIVIDE",width=25, command=divide, state=DISABLED, activebackground="Green")
-divideButton.pack()
+divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
+divideButton.grid(row=2, column=1)
 
 
 validate_cmd = m.register(validate_input)
 
 # Label stuff
 Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
-Submit1.pack()
+Submit1.grid(row=3, column=0, columnspan=2)
 Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
-Submit2.pack()
+Submit2.grid(row=4, column=0, columnspan=2)
 
 # ClearButton stuff
-clearButton = tk.Button(m, text="CLEAR",width=15,command=clear,activebackground="Red")
-clearButton.pack()
+clearButton = tk.Button(m, text="CLEAR", width=15, command=clear, activebackground="Red")
+clearButton.grid(row=5, column=0, columnspan=2)
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
 
