@@ -2,15 +2,16 @@ Python project to be worked on. Main purpose is for relearning Python again.
 
 5 minutes a day.
 
-Status (Draft)
-Version 0.4
+Status (Development)
+Version 0.5
 Author: Logan Valintine
 
 Things to get done.
 
-1) Calculator needs to be moved to GUI :TICK:
+Finished 1) Calculator on GUI and 2) Custom images on GUI
 
-2) Include custom images on GUI
+Uses a filepath from C: Drive to get an image for the icon.
+
 
 3) Timer on GUI
 
