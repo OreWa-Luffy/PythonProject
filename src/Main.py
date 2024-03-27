@@ -30,6 +30,13 @@ def subTract():
     subtotal = sub1 - sub2
     label.config(text=subtotal)
 
+def multiply():
+    multi1 = int(Submit1.get())
+    multi2 = int(Submit2.get())
+    multiTotal = multi1 * multi2
+    label.config(text=multiTotal)
+
+
 
 # Validates whether the button can be pressed if both numbers are filled.
 def validate_and_enable_button(*args):
@@ -56,7 +63,6 @@ addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
 addButton.pack()
 subButton = tk.Button(m, text="SUBTRACT", width=25,command=subTract, state=DISABLED)
 subButton.pack()
-
 validate_cmd = m.register(validate_input)
 
 # Label stuff
