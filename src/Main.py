@@ -97,10 +97,10 @@ m.timer_label = tk.Label(m, text="Timer: 0 seconds", font=14)
 m.timer_label.grid(row=6, column=0, columnspan=2)
 
 
-def update_timer(m):
-    elapsed_time = round(time.time() - m.start_time)
-    m.timer_label.config(text=f"Timer: {elapsed_time:} seconds")
-    m.root.after(1000, m.update_timer)
+def clock():
+    hour = time.strftime("%H", time.localtime())
+    minute = time.strftime("%M", time.localtime())
+    second = time.strftime("%S", time.localtime())
 
 
 # Label stuff
