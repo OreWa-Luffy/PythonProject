@@ -79,6 +79,7 @@ m = tk.Tk()
 m.title("Calculator")
 m.geometry("360x150")
 icon_path = "C:/Users/baydr/Pictures/Uni/redstone.png"
+m.configure(bg="black")
 
 # Attempts to apply image to icon photo.
 try:
@@ -93,7 +94,7 @@ except Exception as e:
 
 m.start_time = time.time()
 
-timerLabel = tk.Label(m, text="Timer: 0 seconds", font=14)
+timerLabel = tk.Label(m, text="Timer: 0 seconds", font=14, fg="green", background="black", )
 timerLabel.grid(row=6, column=0, columnspan=2)
 
 
@@ -101,35 +102,39 @@ def clock():
     hour = time.strftime("%H", time.localtime())
     minute = time.strftime("%M", time.localtime())
     second = time.strftime("%S", time.localtime())
-    timerLabel.config(text=hour + ":" + minute + ":" + second)
+    digital = time.strftime("%p", time.localtime())
+    timerLabel.config(text=hour + ":" + minute + ":" + second + " - " + digital)
+    timerLabel.after(1000, clock)
+
 
 # Label stuff
-label = Label(m, text="Welcome to calculator")
+label = Label(m, text="Welcome to calculator", fg="white", bg="black")
+
 label.grid(row=0, column=0, columnspan=2)
 
 # AddButton stuff
-addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
+addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green", fg="white", bg="black")
 addButton.grid(row=1, column=0)
 # SubButton stuff
-subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
+subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green", fg="white", bg="black")
 subButton.grid(row=1, column=1)
 # MultiButton stuff
-multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
+multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green", fg="white", bg="black")
 multiButton.grid(row=2, column=0)
 # DivideButton stuff
-divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
+divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green", fg="white", bg="black")
 divideButton.grid(row=2, column=1)
 
 validate_cmd = m.register(validate_input)
 
 # Label stuff
-Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
+Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'), fg="white", bg="black")
 Submit1.grid(row=3, column=0, columnspan=2)
-Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
+Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'), fg="white", bg="black")
 Submit2.grid(row=4, column=0, columnspan=2)
 
 # ClearButton stuff
-clearButton = tk.Button(m, text="CLEAR", width=15, command=clear, activebackground="Red")
+clearButton = tk.Button(m, text="CLEAR", width=15, command=clear, activebackground="Red", fg="white", bg="black")
 clearButton.grid(row=5, column=0, columnspan=2)
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
