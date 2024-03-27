@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import *
+import time
 
 
 # Now moved to GUI #
@@ -88,6 +89,20 @@ try:
 except Exception as e:
     print("Error with file path.", e)
 
+# Timer stuff
+
+m.start_time = time.time()
+
+m.timer_label = tk.Label(m, text="Timer: 0 seconds", font=14)
+m.timer_label.grid(row=6, column=0, columnspan=2)
+
+
+def update_timer(m):
+    elapsed_time = round(time.time() - m.start_time)
+    m.timer_label.config(text=f"Timer: {elapsed_time:} seconds")
+    m.root.after(1000, m.update_timer)
+
+
 # Label stuff
 label = Label(m, text="Welcome to calculator")
 label.grid(row=0, column=0, columnspan=2)
@@ -104,7 +119,6 @@ multiButton.grid(row=2, column=0)
 # DivideButton stuff
 divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
 divideButton.grid(row=2, column=1)
-
 
 validate_cmd = m.register(validate_input)
 
