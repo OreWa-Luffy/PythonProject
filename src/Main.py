@@ -124,6 +124,8 @@ multiButton.grid(row=2, column=0)
 # DivideButton stuff
 divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green", fg="white", bg="black")
 divideButton.grid(row=2, column=1)
+# light/dark mode button
+
 
 validate_cmd = m.register(validate_input)
 
