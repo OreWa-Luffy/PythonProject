@@ -30,6 +30,7 @@ def subTract():
     subtotal = sub1 - sub2
     label.config(text=subtotal)
 
+
 # Multiply method.
 def multiply():
     multi1 = int(Submit1.get())
@@ -58,6 +59,8 @@ def validate_and_enable_button(*args):
 # GUI things.
 m = tk.Tk()
 m.title("Calculator")
+m.geometry("200x300")
+m.iconbitmap(False, tk.PhotoImage(file="c:/Pictures/Uni/Calculator.jpg"))
 label = Label(m, text="Welcome to calculator")
 label.pack()
 
@@ -70,7 +73,6 @@ subButton.pack()
 # MultiButton stuff
 multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
 multiButton.pack()
-
 
 validate_cmd = m.register(validate_input)
 
