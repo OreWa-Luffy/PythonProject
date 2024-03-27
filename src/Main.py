@@ -39,6 +39,14 @@ def multiply():
     label.config(text=multiTotal)
 
 
+# Divide method.
+def divide():
+    divide1 = int(Submit1.get())
+    divide2 = int(Submit2.get())
+    divideTotal = divide1 / divide2
+    label.config(text=divideTotal)
+
+
 # Validates whether the button can be pressed if both numbers are filled.
 def validate_and_enable_button(*args):
     if Submit1.get() and Submit2.get():
@@ -46,14 +54,17 @@ def validate_and_enable_button(*args):
             addButton.config(state=NORMAL)
             subButton.config(state=NORMAL)
             multiButton.config(state=NORMAL)
+            divideButton.config(state=NORMAL)
         else:
             addButton.config(state=tk.DISABLED)
             subButton.config(state=tk.DISABLED)
             multiButton.config(state=tk.DISABLED)
+            divideButton.config(state=tk.DISABLED)
     else:
         addButton.config(state=tk.DISABLED)
         subButton.config(state=tk.DISABLED)
         multiButton.config(state=tk.DISABLED)
+        divideButton.config(state=tk.DISABLED)
 
 
 # GUI things.
@@ -84,6 +95,9 @@ subButton.pack()
 # MultiButton stuff
 multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
 multiButton.pack()
+# DivideButton stuff
+divideButton = tk.Button(m, text="DIVIDE",width=25, command=divide, state=DISABLED, activebackground="Green")
+divideButton.pack()
 
 validate_cmd = m.register(validate_input)
 
