@@ -94,19 +94,17 @@ label.pack()
 
 # AddButton stuff
 addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
-addButton.pack()
+addButton.pack(side=tk.LEFT)
 # SubButton stuff
 subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
-subButton.pack()
+subButton.pack(tk.LEFT)
 # MultiButton stuff
 multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
 multiButton.pack()
 # DivideButton stuff
 divideButton = tk.Button(m, text="DIVIDE",width=25, command=divide, state=DISABLED, activebackground="Green")
 divideButton.pack()
-# ClearButton stuff
-clearButton = tk.Button(m, text="CLEAR",width=25,command=clear,activebackground="Red")
-clearButton.pack()
+
 
 validate_cmd = m.register(validate_input)
 
@@ -115,6 +113,10 @@ Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'
 Submit1.pack()
 Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
 Submit2.pack()
+
+# ClearButton stuff
+clearButton = tk.Button(m, text="CLEAR",width=15,command=clear,activebackground="Red")
+clearButton.pack()
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
 
