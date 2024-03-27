@@ -4,7 +4,7 @@ from tkinter import *
 
 # Now moved to GUI #
 
-
+# Validates that the input is in int.
 def validate_input(new_value):
     if new_value == '':
         return True
@@ -15,6 +15,7 @@ def validate_input(new_value):
         return False
 
 
+# add method
 def Add():
     add1 = int(Submit1.get())
     add2 = int(Submit2.get())
@@ -22,6 +23,7 @@ def Add():
     label.config(text=total)
 
 
+# Subtract method
 def subTract():
     sub1 = int(Submit1.get())
     sub2 = int(Submit2.get())
@@ -29,6 +31,7 @@ def subTract():
     label.config(text=subtotal)
 
 
+# Validates whether the button can be pressed if both numbers are filled.
 def validate_and_enable_button(*args):
     if Submit1.get() and Submit2.get():
         if Submit1.get().isdigit() and Submit2.get().isdigit():
@@ -44,14 +47,17 @@ m = tk.Tk()
 m.title("Calculator")
 label = Label(m, text="Welcome to calculator")
 label.pack()
+
+# Button stuff
 button = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
 button.pack()
 validate_cmd = m.register(validate_input)
+
+# Label stuff
 Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
 Submit1.pack()
 Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
 Submit2.pack()
-
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
 
