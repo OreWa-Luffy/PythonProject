@@ -35,11 +35,14 @@ def subTract():
 def validate_and_enable_button(*args):
     if Submit1.get() and Submit2.get():
         if Submit1.get().isdigit() and Submit2.get().isdigit():
-            button.config(state=NORMAL)
+            addButton.config(state=NORMAL)
+            subButton.config(state=NORMAL)
         else:
-            button.config(state=tk.DISABLED)
+            addButton.config(state=tk.DISABLED)
+            subButton.config(state=tk.DISABLED)
     else:
-        button.config(state=tk.DISABLED)
+        addButton.config(state=tk.DISABLED)
+        subButton.config(state=tk.DISABLED)
 
 
 # GUI things.
@@ -49,8 +52,11 @@ label = Label(m, text="Welcome to calculator")
 label.pack()
 
 # Button stuff
-button = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
-button.pack()
+addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED)
+addButton.pack()
+subButton = tk.Button(m, text="SUBTRACT", width=25,command=subTract, state=DISABLED)
+subButton.pack()
+
 validate_cmd = m.register(validate_input)
 
 # Label stuff
