@@ -60,7 +60,18 @@ def validate_and_enable_button(*args):
 m = tk.Tk()
 m.title("Calculator")
 m.geometry("200x300")
-m.iconbitmap(False, tk.PhotoImage(file="c:/Pictures/Uni/Calculator.jpg"))
+icon_path = "C:/Users/baydr/Pictures/Uni/redstone.png"
+
+# Attempts to apply image to icon photo.
+try:
+    icon_image = tk.PhotoImage(file=icon_path)
+
+    m.iconphoto(False, icon_image)
+
+except Exception as e:
+    print("Error with file path.", e)
+
+# Label stuff
 label = Label(m, text="Welcome to calculator")
 label.pack()
 
