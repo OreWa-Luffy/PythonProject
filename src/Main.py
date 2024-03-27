@@ -47,6 +47,12 @@ def divide():
     label.config(text=divideTotal)
 
 
+def clear():
+    Submit1.delete(0, END)
+    Submit2.delete(0, END)
+    validate_and_enable_button()
+
+
 # Validates whether the button can be pressed if both numbers are filled.
 def validate_and_enable_button(*args):
     if Submit1.get() and Submit2.get():
@@ -98,6 +104,9 @@ multiButton.pack()
 # DivideButton stuff
 divideButton = tk.Button(m, text="DIVIDE",width=25, command=divide, state=DISABLED, activebackground="Green")
 divideButton.pack()
+# ClearButton stuff
+clearButton = tk.Button(m, text="CLEAR",width=25,command=clear,activebackground="Red")
+clearButton.pack()
 
 validate_cmd = m.register(validate_input)
 
