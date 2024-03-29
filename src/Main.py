@@ -79,16 +79,17 @@ def validate_and_enable_button(*args):
 def light_dark():
     global switch_value
     if switch_value:
-        m.configure(bg="black")
-        addButton.config(fg="white", bg="black")
-        subButton.config(fg="white", bg="black")
-        multiButton.config(fg="white", bg="black")
-        divideButton.config(fg="white", bg="black")
-        label.config(fg="white", bg="black")
-        light_darkButton.config(fg="white", bg="black")
-        clearButton.config(fg="white", bg="black")
-        Submit1.config(fg="white", bg="black")
-        Submit2.config(fg="white", bg="black")
+        m.configure(bg="darkslategrey")
+        addButton.config(fg="white", bg="slategray")
+        subButton.config(fg="white", bg="slategray")
+        multiButton.config(fg="white", bg="slategray")
+        divideButton.config(fg="white", bg="slategray")
+        label.config(fg="white", bg="slategray")
+        light_darkButton.config(fg="white", bg="slategray")
+        clearButton.config(fg="white", bg="slategray")
+        Submit1.config(fg="white", bg="slategray")
+        Submit2.config(fg="white", bg="slategray")
+        light_darkButton.config(text="LIGHT MODE")
 
         switch_value = False
     else:
@@ -102,10 +103,8 @@ def light_dark():
         clearButton.config(fg="black", bg="white")
         Submit1.config(fg="black", bg="white")
         Submit2.config(fg="black", bg="white")
+        light_darkButton.config(text="DARK MODE")
         switch_value = True
-
-
-
 
 
 # GUI things.
@@ -121,7 +120,7 @@ switch_value = True
 
 m.start_time = time.time()
 timerLabel = tk.Label(m, text="Timer: 0 seconds", font=14, fg="green", background="black", )
-timerLabel.grid(row=6, column=0, columnspan=2)
+timerLabel.grid(row=7, column=0, columnspan=2)
 
 
 def clock():
@@ -151,8 +150,8 @@ multiButton.grid(row=2, column=0)
 divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
 divideButton.grid(row=2, column=1)
 # light/dark mode button
-light_darkButton = tk.Button(m, text="DARK MODE", width=25, command=light_dark)
-light_darkButton.grid(row=5, column=1, columnspan=2)
+light_darkButton = tk.Button(m, text="DARK MODE", command=light_dark)
+light_darkButton.grid(row=6, column=1)
 
 validate_cmd = m.register(validate_input)
 
@@ -164,7 +163,7 @@ Submit2.grid(row=4, column=0, columnspan=2)
 
 # ClearButton stuff
 clearButton = tk.Button(m, text="CLEAR", width=15, command=clear, activebackground="Red")
-clearButton.grid(row=5, column=0, columnspan=2)
+clearButton.grid(row=6, column=0)
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
 
