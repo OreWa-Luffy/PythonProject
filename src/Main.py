@@ -112,7 +112,7 @@ m = tk.Tk()
 m.title("Calculator")
 m.geometry("350x200")
 m.resizable(width=False, height=False)
-icon_path = "C:/Users/baydr/Pictures/Uni/redstone.png"
+icon_path = "/PythonProjects/Resources/redstone.png"
 icon_image = tk.PhotoImage(file=icon_path)
 m.iconphoto(False, icon_image)
 switch_value = True
