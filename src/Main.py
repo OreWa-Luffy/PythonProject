@@ -110,7 +110,8 @@ def light_dark():
 # GUI things.
 m = tk.Tk()
 m.title("Calculator")
-m.geometry("360x150")
+m.geometry("350x200")
+m.resizable(width=False, height=False)
 icon_path = "C:/Users/baydr/Pictures/Uni/redstone.png"
 icon_image = tk.PhotoImage(file=icon_path)
 m.iconphoto(False, icon_image)
@@ -133,7 +134,7 @@ def clock():
 
 
 # Label stuff
-label = Label(m, text="Welcome to calculator", fg="white", bg="black")
+label = Label(m, text="Welcome to calculator")
 
 label.grid(row=0, column=0, columnspan=2)
 
