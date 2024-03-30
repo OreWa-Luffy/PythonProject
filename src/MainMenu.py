@@ -9,7 +9,7 @@ import sys
 
 # setting up file paths.
 
-GUI_Calculator = '/PythonProjects/src/Main.py'
+GUI_Calculator = '/PythonProjects/src/Calculator.py'
 
 args = '"%s" "%s"' % (sys.executable, GUI_Calculator)
 
