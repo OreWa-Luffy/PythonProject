@@ -1,10 +1,15 @@
 import tkinter as tk
 from tkinter import *
 import time
+import sys
+import os
+import subprocess
 
 
 # Now moved to GUI #
 
+
+# CALCULATOR FUNCTIONS
 # Validates that the input is in int.
 def validate_input(new_value):
     if new_value == '':
@@ -74,12 +79,26 @@ def validate_and_enable_button(*args):
         divideButton.config(state=tk.DISABLED)
 
 
+# GUI SPECIFIC COMMANDS
+
+GUI_MAINMENU = '/PythonProjects/src/MainMenu.py'
+args = '"%s" "%s"' % (sys.executable, GUI_MAINMENU)
+
+
+def destroy():
+    clearButton.destroy()
+
+
+def returnToMain():
+    proc = subprocess.run(args)
+
+
 # light and dark mode
 
 def light_dark():
     global switch_value
     if switch_value:
-        m.configure(bg="darkslategrey")
+        calculator.configure(bg="darkslategrey")
         addButton.config(fg="white", bg="slategray")
         subButton.config(fg="white", bg="slategray")
         multiButton.config(fg="white", bg="slategray")
@@ -93,7 +112,7 @@ def light_dark():
 
         switch_value = False
     else:
-        m.configure(bg="white")
+        calculator.configure(bg="white")
         addButton.config(fg="black", bg="white")
         subButton.config(fg="black", bg="white")
         multiButton.config(fg="black", bg="white")
@@ -108,19 +127,19 @@ def light_dark():
 
 
 # GUI things.
-m = tk.Tk()
-m.title("Calculator")
-m.geometry("350x200")
-m.resizable(width=False, height=False)
+calculator = tk.Tk()
+calculator.title("Calculator")
+calculator.geometry("350x200")
+calculator.resizable(width=False, height=False)
 icon_path = "/PythonProjects/Resources/redstone.png"
 icon_image = tk.PhotoImage(file=icon_path)
-m.iconphoto(False, icon_image)
+calculator.iconphoto(False, icon_image)
 switch_value = True
 
 # Timer stuff
 
-m.start_time = time.time()
-timerLabel = tk.Label(m, text="Timer: 0 seconds", font=14, fg="green", background="black", )
+calculator.start_time = time.time()
+timerLabel = tk.Label(calculator, text="Timer: 0 seconds", font=14, fg="green", background="black", )
 timerLabel.grid(row=7, column=0, columnspan=2)
 
 
@@ -134,36 +153,39 @@ def clock():
 
 
 # Label stuff
-label = Label(m, text="Welcome to calculator")
+label = Label(calculator, text="Welcome to calculator")
 
 label.grid(row=0, column=0, columnspan=2)
 
 # AddButton stuff
-addButton = tk.Button(m, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
+addButton = tk.Button(calculator, text="ADD", width=25, command=Add, state=DISABLED, activebackground="Green")
 addButton.grid(row=1, column=0)
 # SubButton stuff
-subButton = tk.Button(m, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
+subButton = tk.Button(calculator, text="SUBTRACT", width=25, command=subTract, state=DISABLED, activebackground="Green")
 subButton.grid(row=1, column=1)
 # MultiButton stuff
-multiButton = tk.Button(m, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
+multiButton = tk.Button(calculator, text="MULTIPLY", width=25, command=multiply, state=DISABLED, activebackground="Green")
 multiButton.grid(row=2, column=0)
 # DivideButton stuff
-divideButton = tk.Button(m, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
+divideButton = tk.Button(calculator, text="DIVIDE", width=25, command=divide, state=DISABLED, activebackground="Green")
 divideButton.grid(row=2, column=1)
 # light/dark mode button
-light_darkButton = tk.Button(m, text="DARK MODE", command=light_dark)
+light_darkButton = tk.Button(calculator, text="DARK MODE", command=light_dark)
 light_darkButton.grid(row=6, column=1)
+# Return to main menu button
+mainMenu_button = tk.Button(calculator, text="Return to main menu", command=lambda: [destroy(), returnToMain()])
+mainMenu_button.grid(row=8, column=2, columnspan=2)
 
-validate_cmd = m.register(validate_input)
+validate_cmd = calculator.register(validate_input)
 
 # Label stuff
-Submit1 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
+Submit1 = Entry(calculator, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
 Submit1.grid(row=3, column=0, columnspan=2)
-Submit2 = Entry(m, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
+Submit2 = Entry(calculator, width=25, validate="key", validatecommand=(validate_cmd, '%P'))
 Submit2.grid(row=4, column=0, columnspan=2)
 
 # ClearButton stuff
-clearButton = tk.Button(m, text="CLEAR", width=15, command=clear, activebackground="Red")
+clearButton = tk.Button(calculator, text="CLEAR", width=15, command=clear, activebackground="Red")
 clearButton.grid(row=6, column=0)
 
 # Binding the validate_and_enable_button function to any change in the Entry fields
@@ -172,4 +194,4 @@ Submit1.bind("<KeyRelease>", validate_and_enable_button)
 Submit2.bind("<KeyRelease>", validate_and_enable_button)
 
 clock()
-m.mainloop()
+calculator.mainloop()
