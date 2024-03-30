@@ -85,7 +85,7 @@ color_button.pack(side="left", padx=5, pady=5)
 clear_button.pack(side="left", padx=5, pady=5)
 backToMenu.pack(side="right", padx=5, pady=5)
 
-line_width_label = tk.Label(controls_frame, text="Line width: ")
+line_width_label = tk.Label(controls_frame, text="Line width: ", bg="gray")
 line_width_label.pack(side="left", padx=5, pady=5)
 
 line_width_slider = tk.Scale(controls_frame, from_=1, to=10, orient=tk.HORIZONTAL,
