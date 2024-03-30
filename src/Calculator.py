@@ -86,7 +86,7 @@ args = '"%s" "%s"' % (sys.executable, GUI_MAINMENU)
 
 
 def destroy():
-    clearButton.destroy()
+    calculator.destroy()
 
 
 def returnToMain():
@@ -129,7 +129,7 @@ def light_dark():
 # GUI things.
 calculator = tk.Tk()
 calculator.title("Calculator")
-calculator.geometry("350x200")
+calculator.geometry("450x200")
 calculator.resizable(width=False, height=False)
 icon_path = "/PythonProjects/Resources/redstone.png"
 icon_image = tk.PhotoImage(file=icon_path)
@@ -173,8 +173,8 @@ divideButton.grid(row=2, column=1)
 light_darkButton = tk.Button(calculator, text="DARK MODE", command=light_dark)
 light_darkButton.grid(row=6, column=1)
 # Return to main menu button
-mainMenu_button = tk.Button(calculator, text="Return to main menu", command=lambda: [destroy(), returnToMain()])
-mainMenu_button.grid(row=8, column=2, columnspan=2)
+mainMenu_button = tk.Button(calculator, text="Return to main menu", width=25, command=lambda: [destroy(), returnToMain()])
+mainMenu_button.grid(row=8, column=0, columnspan=2)
 
 validate_cmd = calculator.register(validate_input)
 
