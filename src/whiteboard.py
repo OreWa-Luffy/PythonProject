@@ -4,12 +4,15 @@ from tkinter.colorchooser import askcolor
 
 
 # Function defs.
+
+
+# Is_drawing, prev_x and prev_y are all global variables the previous x and y to the event's x and y means it follows the mouse cursor's postion
 def start_drawing(event):
     global is_drawing, prev_x, prev_y
     is_drawing = True
     prev_x, prev_y = event.x, event.y
 
-
+# if drawing is true, it uses the current x and y pos of the cursor for creating a line in the canvas.
 def draw(event):
     global is_drawing, prev_x, prev_y
     if is_drawing:
@@ -19,18 +22,19 @@ def draw(event):
         prev_x, prev_y = current_x, current_y
 
 
+# stops drawing and sets is_drawing to false
 def stop_drawing(event):
     global is_drawing
     is_drawing = False
 
-
+# uses the built-in tk module to change color.
 def change_pen_color():
     global drawing_color
     color = askcolor()[1]
     if color:
         drawing_color = color
 
-
+# changes the width of the line
 def change_line_width(value):
     global line_width
     line_width = int(value)
