@@ -24,10 +24,10 @@ def stop_drawing(event):
 
 
 def change_pen_color():
-    global pencolor
+    global drawing_color
     color = askcolor()[1]
     if color:
-        pencolor = color
+        drawing_color = color
 
 
 def change_line_width(value):
@@ -67,8 +67,10 @@ line_width_slider.pack(side="left", padx=5, pady=5)
 
 
 canvas.bind("<Button-1>", start_drawing)
-canvas.bind("<B1-Motion>", start_drawing)
+canvas.bind("<B1-Motion>", draw)
 canvas.bind("<ButtonRelease-1>", stop_drawing)
+
+
 
 
 
