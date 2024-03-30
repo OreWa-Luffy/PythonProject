@@ -47,3 +47,30 @@ line_width = 2
 
 
 root.geometry("800x800")
+
+controls_frame = tk.Frame(root)
+controls_frame.pack(side="top", fill="x")
+controls_frame.config(bg="gray")
+
+color_button = tk.Button(controls_frame, text="Change color", command=change_pen_color, bg="gray")
+clear_button = tk.Button(controls_frame, text="Clear", command=lambda: [canvas.delete("all")], bg="gray")
+
+color_button.pack(side="left", padx=5, pady=5)
+clear_button.pack(side="left", padx=5, pady=5)
+
+line_width_label = tk.Label(controls_frame, text="Line width: ")
+line_width_label.pack(side="left", padx=5, pady=5)
+
+line_width_slider = tk.Scale(controls_frame, from_=1, to=10, orient=tk.HORIZONTAL,command=lambda val: change_line_width(val))
+line_width_slider.set(line_width)
+line_width_slider.pack(side="left", padx=5, pady=5)
+
+
+canvas.bind("<Button-1>", start_drawing)
+canvas.bind("<B1-Motion>", start_drawing)
+canvas.bind("<ButtonRelease-1>", stop_drawing)
+
+
+
+
+root.mainloop()
