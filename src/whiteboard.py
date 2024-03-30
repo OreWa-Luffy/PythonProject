@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import *
 from tkinter.colorchooser import askcolor
+import sys
+import os
+import subprocess
 
 
 # Function defs.
@@ -11,6 +14,7 @@ def start_drawing(event):
     global is_drawing, prev_x, prev_y
     is_drawing = True
     prev_x, prev_y = event.x, event.y
+
 
 # if drawing is true, it uses the current x and y pos of the cursor for creating a line in the canvas.
 def draw(event):
@@ -27,12 +31,14 @@ def stop_drawing(event):
     global is_drawing
     is_drawing = False
 
+
 # uses the built-in tk module to change color.
 def change_pen_color():
     global drawing_color
     color = askcolor()[1]
     if color:
         drawing_color = color
+
 
 # changes the width of the line
 def change_line_width(value):
@@ -42,6 +48,14 @@ def change_line_width(value):
 
 def destroy():
     root.destroy()
+
+
+GUI_MAINMENU = '/PythonProjects/src/MainMenu.py'
+args = '"%s" "%s"' % (sys.executable, GUI_MAINMENU)
+
+
+def openMainMenu():
+    proc = subprocess.run(args)
 
 
 # GUI Stuff.
@@ -65,9 +79,11 @@ controls_frame.config(bg="gray")
 
 color_button = tk.Button(controls_frame, text="Change color", command=change_pen_color, bg="gray")
 clear_button = tk.Button(controls_frame, text="Clear", command=lambda: [canvas.delete("all")], bg="gray")
+backToMenu = tk.Button(controls_frame, text="return to menu", command=lambda: [destroy(), openMainMenu()], bg="gray")
 
 color_button.pack(side="left", padx=5, pady=5)
 clear_button.pack(side="left", padx=5, pady=5)
+backToMenu.pack(side="right", padx=5, pady=5)
 
 line_width_label = tk.Label(controls_frame, text="Line width: ")
 line_width_label.pack(side="left", padx=5, pady=5)
