@@ -3,7 +3,7 @@ Python project to be worked on. Main purpose is for relearning Python again.
 5 minutes a day.
 
 Status (Development)
-Version 0.6
+Version 0.7
 Author: Logan Valintine
 
 Things to get done.
@@ -20,7 +20,7 @@ Create a mini pc like gui with at least the following 4 things
 
 1) A calculator that can add, sub, multi, divide, squared numbers, and square root
 
-2) A whiteboard space to draw on.
+
 
 3) A settable timer.
 
