@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter.colorchooser import askcolor
 
 
+# Function defs.
 def start_drawing(event):
     global is_drawing, prev_x, prev_y
     is_drawing = True
@@ -35,6 +36,13 @@ def change_line_width(value):
     line_width = int(value)
 
 
+def destroy():
+    root.destroy()
+
+
+# GUI Stuff.
+
+
 root = tk.Tk()
 root.title("Whiteboard")
 
@@ -44,7 +52,6 @@ canvas.pack(fill=BOTH, expand=True)
 is_drawing = False
 drawing_color = "black"
 line_width = 2
-
 
 root.geometry("800x800")
 
@@ -61,18 +68,13 @@ clear_button.pack(side="left", padx=5, pady=5)
 line_width_label = tk.Label(controls_frame, text="Line width: ")
 line_width_label.pack(side="left", padx=5, pady=5)
 
-line_width_slider = tk.Scale(controls_frame, from_=1, to=10, orient=tk.HORIZONTAL,command=lambda val: change_line_width(val))
+line_width_slider = tk.Scale(controls_frame, from_=1, to=10, orient=tk.HORIZONTAL,
+                             command=lambda val: change_line_width(val))
 line_width_slider.set(line_width)
 line_width_slider.pack(side="left", padx=5, pady=5)
-
 
 canvas.bind("<Button-1>", start_drawing)
 canvas.bind("<B1-Motion>", draw)
 canvas.bind("<ButtonRelease-1>", stop_drawing)
-
-
-
-
-
 
 root.mainloop()
