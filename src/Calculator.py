@@ -136,6 +136,10 @@ icon_image = tk.PhotoImage(file=icon_path)
 calculator.iconphoto(False, icon_image)
 switch_value = True
 
+controlFrame = tk.Frame(calculator)
+controlFrame.grid(row=0, column=0)
+controlFrame.config(background="gray")
+
 # Timer stuff
 
 calculator.start_time = time.time()
